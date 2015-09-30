@@ -1,19 +1,9 @@
 web:
   build: .
-  command: 'bash -c ''yes | mix compile.protocols && elixir -pa _build/prod/consolidated -S mix phoenix.start'''
-  working_dir: /app/user
-  environment:
-    PORT: 8080
-  ports:
-    - '8080:8080'
-shell:
-  build: .
-  command: bash
-  working_dir: /app/user
-  environment:
-    PORT: 8080
-  ports:
-    - '8080:8080'
+  command: mix phoenix.server
   volumes:
-    - '.:/app/user'
-
+    - .:/app
+  environment:
+    PORT: 4000
+  ports:
+    - '4000:4000'
