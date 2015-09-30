@@ -1,0 +1,5 @@
+{
+  "name": "elixir_blog",
+  "image": "alco/ubuntu-elixir:v0.13.3",
+  "addons": []
+}
