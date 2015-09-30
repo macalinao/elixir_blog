@@ -16,11 +16,7 @@ defmodule ElixirBlog.Router do
   scope "/", ElixirBlog do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    resources "/", PostController
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ElixirBlog do
-  #   pipe_through :api
-  # end
 end
