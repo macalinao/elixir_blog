@@ -16,6 +16,7 @@ defmodule ElixirBlog.Router do
   scope "/", ElixirBlog do
     pipe_through :browser # Use the default browser stack
 
+    resources "/users", UserController
     resources "/", PostController
   end
 
