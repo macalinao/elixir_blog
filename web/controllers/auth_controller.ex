@@ -3,13 +3,11 @@ defmodule ElixirBlog.AuthController do
 
   alias ElixirBlog.User
 
-  plug :scrub_params, "post" when action in [:create, :update]
-
   def login(conn, _params) do
     render(conn, "login.html")
   end
 
-  def do_login(conn, %{"username" => username, "password" => password}) do
+  def do_login(conn, %{"login" => %{"username" => username, "password" => password}}) do
     redirect(conn, to: post_path(conn, :index))
   end
 
