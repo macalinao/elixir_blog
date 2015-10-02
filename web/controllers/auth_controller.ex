@@ -8,11 +8,13 @@ defmodule ElixirBlog.AuthController do
   end
 
   def do_login(conn, %{"login" => %{"username" => username, "password" => password}}) do
-    redirect(conn, to: post_path(conn, :index))
+    conn = put_session(conn, :username, username)
+    |> redirect(to: post_path(conn, :index))
   end
 
   def logout(conn, _params) do
-    render(conn, "logout.html")
+    conn = delete_session(conn, :username)
+    |> render("logout.html")
   end
 
 end
